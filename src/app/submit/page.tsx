@@ -1,6 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
 import SubmitForm from "@/components/SubmitForm";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function SubmitPage() {
@@ -18,50 +17,6 @@ export default async function SubmitPage() {
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
-      {/* Navigation */}
-      <nav className="neo-nav">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="text-2xl font-bold text-gradient">
-              🚀 BoilerLaunch
-            </Link>
-            <div className="flex items-center space-x-4">
-              <div className="hidden sm:flex items-center space-x-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[var(--purdue-gold)] to-[var(--purdue-gold-dark)] flex items-center justify-center text-white font-semibold text-sm">
-                  {authenticatedUser.user_metadata?.full_name?.[0] ||
-                    authenticatedUser.email?.[0] ||
-                    "U"}
-                </div>
-                <span className="text-sm font-medium text-[var(--text-primary)]">
-                  {authenticatedUser.user_metadata?.full_name?.split(" ")[0] ||
-                    "User"}
-                </span>
-              </div>
-              <Link
-                href="/"
-                className="neo-btn-primary inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium shadow-md transition-colors"
-                style={{
-                  backgroundColor: "#000000 !important",
-                  border: "none !important",
-                  textDecoration: "none !important",
-                }}
-              >
-                <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 19l-7-7m0 0l7-7m0 7h18"
-                    stroke="#ffffff"
-                  />
-                </svg>
-                Back to Home
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* Header Section */}
       <section className="neo-hero py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">

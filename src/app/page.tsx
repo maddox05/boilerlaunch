@@ -4,8 +4,6 @@ import { products, upvotes } from "@/db/schema";
 import { desc, eq, count, gte, and, inArray } from "drizzle-orm";
 import { createClient } from "@/lib/supabase/server";
 import ProductCard from "@/components/ProductCard";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 async function getTodayProducts() {
   const today = new Date();
@@ -112,8 +110,6 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
-      <Navbar />
-
       {/* Compact Header */}
       <section className="border-b border-[var(--border-light)] bg-[var(--surface)] py-6">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -252,8 +248,6 @@ export default async function Home() {
           </div>
         </section>
       </div>
-
-      <Footer />
     </div>
   );
 }

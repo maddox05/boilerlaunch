@@ -63,38 +63,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[var(--background)] via-[var(--surface-accent)] to-[var(--background)]">
-      {/* Navigation */}
-      <nav className="neo-nav sticky top-0 z-50 backdrop-blur-md bg-[var(--background)]/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="text-2xl font-bold text-gradient">
-              🚀 BoilerLaunch
-            </Link>
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/"
-                className="neo-btn-primary inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium hover:scale-105 transition-transform"
-              >
-                <svg
-                  className="w-4 h-4 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 19l-7-7m0 0l7-7m0 7h18"
-                  />
-                </svg>
-                Back to Home
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* Enhanced Hero Section */}
       <section className="relative py-16 overflow-hidden">
         {/* Background Pattern */}
