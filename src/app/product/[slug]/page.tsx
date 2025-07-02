@@ -7,9 +7,9 @@ import { createClient } from "@/lib/supabase/server";
 import UpvoteButton from "@/components/UpvoteButton";
 
 interface ProductPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 async function getProduct(slug: string) {
@@ -47,7 +47,7 @@ async function getUserUpvote(productId: string, userId?: string) {
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const product = await getProduct(slug);
 
   if (!product) {

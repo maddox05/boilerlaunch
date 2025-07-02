@@ -39,13 +39,25 @@ export default async function SubmitPage() {
               </div>
               <Link
                 href="/"
-                className="neo-btn-secondary inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium"
+                className="inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium bg-black shadow-md transition-colors"
+                style={{
+                  backgroundColor: "#000000 !important",
+                  color: "#ffffff !important",
+                  border: "none",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#27272a";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#000000";
+                }}
               >
                 <svg
                   className="w-4 h-4 mr-2"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  style={{ color: "#ffffff !important" }}
                 >
                   <path
                     strokeLinecap="round"

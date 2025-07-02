@@ -18,9 +18,7 @@ export default async function Navbar({
   isSticky = true,
 }: NavbarProps) {
   const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  await supabase.auth.getUser();
 
   return (
     <nav className={`neo-nav ${isSticky ? "sticky top-0 z-50" : ""}`}>

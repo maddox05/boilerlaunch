@@ -57,7 +57,7 @@ export default function LoginPage() {
       if (error) {
         setErrors({ google: error.message });
       }
-    } catch (error) {
+    } catch {
       setErrors({ google: "Failed to sign in with Google" });
     } finally {
       setLoading(false);
@@ -127,7 +127,7 @@ export default function LoginPage() {
           });
         }
       }
-    } catch (error) {
+    } catch {
       setErrors({ auth: "An unexpected error occurred" });
     } finally {
       setLoading(false);
