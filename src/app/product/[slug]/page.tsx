@@ -73,7 +73,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <div className="flex items-center space-x-4">
               <Link
                 href="/"
-                className="neo-btn-secondary inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium hover:scale-105 transition-transform"
+                className="neo-btn-primary inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium hover:scale-105 transition-transform"
               >
                 <svg
                   className="w-4 h-4 mr-2"
@@ -179,14 +179,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
           {/* Content Area */}
           <div className="lg:col-span-3">
             {/* Product Image */}
-            <div className="neo-card overflow-hidden mb-8 group">
-              <div className="relative">
-                <img
-                  src={product.imageUrl}
-                  alt={product.title}
-                  className="w-full h-64 md:h-96 object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="neo-card p-6 mb-8 group">
+              <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg overflow-hidden">
+                <div className="bg-white rounded-lg p-4 flex items-center justify-center min-h-[400px] md:min-h-[500px]">
+                  <img
+                    src={product.imageUrl}
+                    alt={product.title}
+                    className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
               </div>
             </div>
 

@@ -28,12 +28,14 @@ export default function ProductCard({
 
         {/* Product Image */}
         <Link href={`/product/${product.slug}`} className="flex-shrink-0">
-          <div className="relative overflow-hidden rounded-lg">
-            <img
-              src={product.imageUrl}
-              alt={product.title}
-              className="w-20 h-20 object-cover transition-transform duration-300 group-hover:scale-105"
-            />
+          <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 p-2 border border-gray-200">
+            <div className="bg-white rounded-md overflow-hidden">
+              <img
+                src={product.imageUrl}
+                alt={product.title}
+                className="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
           </div>
         </Link>
 

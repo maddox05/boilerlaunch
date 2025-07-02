@@ -39,24 +39,14 @@ export default async function SubmitPage() {
               </div>
               <Link
                 href="/"
-                className="inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium shadow-md transition-colors"
+                className="neo-btn-primary inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium shadow-md transition-colors"
                 style={{
                   backgroundColor: "#000000 !important",
-                  color: "#ffffff !important",
                   border: "none !important",
                   textDecoration: "none !important",
                 }}
               >
-                <svg
-                  className="w-4 h-4 mr-2"
-                  fill="none"
-                  stroke="#ffffff"
-                  viewBox="0 0 24 24"
-                  style={{
-                    color: "#ffffff !important",
-                    stroke: "#ffffff !important",
-                  }}
-                >
+                <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -65,9 +55,7 @@ export default async function SubmitPage() {
                     stroke="#ffffff"
                   />
                 </svg>
-                <span style={{ color: "#ffffff !important" }}>
-                  Back to Home
-                </span>
+                Back to Home
               </Link>
             </div>
           </div>
