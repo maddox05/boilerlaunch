@@ -223,7 +223,7 @@ export default async function Home() {
               What the Purdue Community Says
             </h2>
             <p className="text-sm text-[var(--text-secondary)] max-w-xl mx-auto">
-              Hear from students, faculty, and researchers
+              Hear from students, faculty, and researchers (fake for now)
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

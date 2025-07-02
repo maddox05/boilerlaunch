@@ -137,18 +137,27 @@ body {
 }
 
 .neo-btn-secondary {
-  background: var(--surface);
-  color: var(--text-primary);
-  border: 1px solid var(--border-medium);
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
   box-shadow: var(--shadow-sm);
   transition: all 0.2s ease-in-out;
 }
 
+.neo-btn-secondary * {
+  color: #ffffff !important;
+}
+
 .neo-btn-secondary:hover:not(:disabled) {
-  background: var(--surface-hover);
-  border-color: var(--border-dark);
+  background: #333333;
+  border-color: #333333;
   box-shadow: var(--shadow-md);
   transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.neo-btn-secondary:hover:not(:disabled) * {
+  color: #ffffff !important;
 }
 
 .neo-input {
@@ -172,7 +181,7 @@ body {
 }
 
 .neo-nav * {
-  color: var(--purdue-black) !important;
+  color: var(--purdue-black);
 }
 
 .neo-nav .text-gradient {

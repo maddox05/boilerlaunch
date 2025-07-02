@@ -39,34 +39,35 @@ export default async function SubmitPage() {
               </div>
               <Link
                 href="/"
-                className="inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium bg-black shadow-md transition-colors"
+                className="inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium shadow-md transition-colors"
                 style={{
                   backgroundColor: "#000000 !important",
                   color: "#ffffff !important",
-                  border: "none",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#27272a";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#000000";
+                  border: "none !important",
+                  textDecoration: "none !important",
                 }}
               >
                 <svg
                   className="w-4 h-4 mr-2"
                   fill="none"
-                  stroke="currentColor"
+                  stroke="#ffffff"
                   viewBox="0 0 24 24"
-                  style={{ color: "#ffffff !important" }}
+                  style={{
+                    color: "#ffffff !important",
+                    stroke: "#ffffff !important",
+                  }}
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
                     d="M10 19l-7-7m0 0l7-7m0 7h18"
+                    stroke="#ffffff"
                   />
                 </svg>
-                Back to Home
+                <span style={{ color: "#ffffff !important" }}>
+                  Back to Home
+                </span>
               </Link>
             </div>
           </div>
