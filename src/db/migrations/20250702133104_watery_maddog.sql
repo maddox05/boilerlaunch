@@ -1,0 +1,2 @@
+ALTER TABLE "boilerlaunch_products" ADD CONSTRAINT "boilerlaunch_products_title_unique" UNIQUE("title");--> statement-breakpoint
+ALTER TABLE "boilerlaunch_products" ADD CONSTRAINT "boilerlaunch_products_project_url_unique" UNIQUE("project_url");
