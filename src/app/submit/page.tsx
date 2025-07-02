@@ -30,6 +30,49 @@ export default async function SubmitPage() {
         </div>
       </section>
 
+      {/* Rules Section */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+        <div className="bg-[var(--surface-accent)] border border-[var(--border-light)] rounded-xl p-6">
+          <div className="flex items-start space-x-3">
+            <div className="flex-shrink-0">
+              <svg
+                className="w-5 h-5 text-[var(--text-secondary)] mt-0.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-2">
+                Submission Guidelines
+              </h3>
+              <ul className="text-sm text-[var(--text-secondary)] space-y-1">
+                <li className="flex items-start space-x-2">
+                  <span className="text-[var(--text-muted)] mt-1">•</span>
+                  <span>
+                    Must be Purdue-related or created by a Purdue
+                    student/faculty
+                  </span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <span className="text-[var(--text-muted)] mt-1">•</span>
+                  <span>
+                    Must be the project owner or have permission from the owner
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Form Section */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="neo-card p-8 md:p-12">
