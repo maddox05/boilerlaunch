@@ -33,15 +33,6 @@ export default function AuthButton() {
     return () => subscription.unsubscribe();
   }, [supabase, router]);
 
-  const handleSignIn = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
-      },
-    });
-  };
-
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.refresh();
