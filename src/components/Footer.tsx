@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="border-t border-[var(--border-light)] bg-[var(--surface)] mt-20">
@@ -10,7 +12,9 @@ export default function Footer() {
             Built with ❤️ for the Purdue community
           </p>
           <div className="flex justify-center space-x-6 text-sm text-[var(--text-muted)]">
-            <span>Showcase • Discover • Connect</span>
+            <span>
+              Showcase • Discover • <Link href="/connect">Connect</Link>
+            </span>
           </div>
         </div>
       </div>
