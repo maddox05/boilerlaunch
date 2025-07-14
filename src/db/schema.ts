@@ -10,13 +10,14 @@ export const products = pgTable("boilerlaunch_products", {
   shortDescription: text("short_description").notNull(),
   imageUrl: text("image_url").notNull(),
   projectUrl: text("project_url").notNull().unique(),
+  linkedinUrl: text("linkedin_url").notNull(),
   tags: text("tags")
     .array()
     .notNull()
     .default(sql`'{}'::text[]`),
   slug: varchar("slug", { length: 255 }).notNull().unique(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
-  userId: uuid("user_id").notNull(), // References auth.users.id from Supabase
+  userId: uuid("user_id"), // Optional - can be null for anonymous submissions
 });
 
 // Upvotes table

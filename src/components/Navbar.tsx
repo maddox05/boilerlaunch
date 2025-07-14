@@ -40,6 +40,12 @@ export default async function Navbar() {
               </svg>
               Submit Product
             </Link>
+            <Link
+              href="/connect"
+              className="neo-btn-primary inline-flex items-center px-4 py-2 rounded-lg text-sm font-semibold"
+            >
+              👥 Connect
+            </Link>
             <AuthButton />
           </div>
         </div>

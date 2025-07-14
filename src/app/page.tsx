@@ -1,70 +1,11 @@
 import Link from "next/link";
-import { db } from "@/db";
-import { products, upvotes } from "@/db/schema";
-import { desc, eq, count, gte, and, inArray } from "drizzle-orm";
+import {
+  getTodayProducts,
+  getAllProducts,
+  getUserUpvotes,
+} from "@/lib/actions";
 import { createClient } from "@/lib/supabase/server";
 import ProductCard from "@/components/ProductCard";
-
-async function getTodayProducts() {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const result = await db
-    .select({
-      id: products.id,
-      title: products.title,
-      shortDescription: products.shortDescription,
-      imageUrl: products.imageUrl,
-      projectUrl: products.projectUrl,
-      tags: products.tags,
-      slug: products.slug,
-      createdAt: products.createdAt,
-      userId: products.userId,
-      upvoteCount: count(upvotes.id),
-    })
-    .from(products)
-    .leftJoin(upvotes, eq(products.id, upvotes.productId))
-    .where(gte(products.createdAt, today))
-    .groupBy(products.id)
-    .orderBy(desc(count(upvotes.id)));
-
-  return result;
-}
-
-async function getAllProducts() {
-  const result = await db
-    .select({
-      id: products.id,
-      title: products.title,
-      shortDescription: products.shortDescription,
-      imageUrl: products.imageUrl,
-      projectUrl: products.projectUrl,
-      tags: products.tags,
-      slug: products.slug,
-      createdAt: products.createdAt,
-      userId: products.userId,
-      upvoteCount: count(upvotes.id),
-    })
-    .from(products)
-    .leftJoin(upvotes, eq(products.id, upvotes.productId))
-    .groupBy(products.id)
-    .orderBy(desc(count(upvotes.id)));
-
-  return result;
-}
-
-async function getUserUpvotes(userId: string, productIds: string[]) {
-  if (!userId || productIds.length === 0) return new Set<string>();
-
-  const userUpvotesList = await db
-    .select({ productId: upvotes.productId })
-    .from(upvotes)
-    .where(
-      and(eq(upvotes.userId, userId), inArray(upvotes.productId, productIds))
-    );
-
-  return new Set(userUpvotesList.map((uv) => uv.productId));
-}
 
 const testimonials = [
   {
@@ -119,7 +60,7 @@ export default async function Home() {
               <span className="text-gradient">Purdue</span>
             </h1>
             <p className="text-sm md:text-base text-[var(--text-secondary)] max-w-2xl mx-auto">
-              Community-driven platform for Purdue student & faculty innovations
+              Connect with other Purdue Founders and Innovators
             </p>
           </div>
         </div>

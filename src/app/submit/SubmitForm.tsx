@@ -2,11 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import type { User } from "@supabase/supabase-js";
-
-interface SubmitFormProps {
-  user: User;
-}
+import { submitProduct } from "@/lib/actions";
 
 const categories = [
   "CS",
@@ -23,7 +19,7 @@ const categories = [
   "Startups",
 ];
 
-export default function SubmitForm({ user }: SubmitFormProps) {
+export default function SubmitForm() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -31,6 +27,7 @@ export default function SubmitForm({ user }: SubmitFormProps) {
     shortDescription: "",
     imageUrl: "",
     projectUrl: "",
+    linkedinUrl: "",
     tags: [] as string[],
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -56,6 +53,12 @@ export default function SubmitForm({ user }: SubmitFormProps) {
       newErrors.imageUrl = "Image URL is required";
     }
 
+    if (!formData.linkedinUrl.trim()) {
+      newErrors.linkedinUrl = "LinkedIn URL is required";
+    } else if (!formData.linkedinUrl.startsWith("https://")) {
+      newErrors.linkedinUrl = "LinkedIn URL must start with https://";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -72,23 +75,20 @@ export default function SubmitForm({ user }: SubmitFormProps) {
     try {
       const slug = formData.title.toLowerCase().replaceAll(" ", "-");
 
-      const response = await fetch("/api/products", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formData,
-          slug,
-          userId: user.id,
-        }),
+      const response = await submitProduct({
+        title: formData.title,
+        shortDescription: formData.shortDescription,
+        imageUrl: formData.imageUrl,
+        projectUrl: formData.projectUrl,
+        linkedinUrl: formData.linkedinUrl,
+        tags: formData.tags,
+        slug,
       });
 
-      if (response.ok) {
+      if (response.slug) {
         router.push(`/product/${slug}`);
       } else {
-        const error = await response.text();
-        setErrors({ submit: error || "Failed to submit product" });
+        setErrors({ submit: "Failed to submit product" });
       }
     } catch {
       setErrors({ submit: "Failed to submit product" });
@@ -197,6 +197,51 @@ export default function SubmitForm({ user }: SubmitFormProps) {
         {errors.projectUrl && (
           <p className="mt-2 text-sm text-[var(--error)]">
             {errors.projectUrl}
+          </p>
+        )}
+      </div>
+
+      {/* LinkedIn URL */}
+      <div>
+        <label
+          htmlFor="linkedinUrl"
+          className="block text-sm font-semibold text-[var(--text-primary)] mb-3"
+        >
+          Your LinkedIn Profile *
+        </label>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+            <svg
+              className="w-5 h-5 text-[var(--text-muted)]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              />
+            </svg>
+          </div>
+          <input
+            type="url"
+            id="linkedinUrl"
+            value={formData.linkedinUrl}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, linkedinUrl: e.target.value }))
+            }
+            className="neo-input w-full pl-12 pr-4 py-3 rounded-lg text-base"
+            placeholder="https://linkedin.com/in/your-profile"
+          />
+        </div>
+        <p className="mt-2 text-sm text-[var(--text-muted)]">
+          Give us your LinkedIn so other creators can connect with you!
+        </p>
+        {errors.linkedinUrl && (
+          <p className="mt-2 text-sm text-[var(--error)]">
+            {errors.linkedinUrl}
           </p>
         )}
       </div>

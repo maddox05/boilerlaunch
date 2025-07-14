@@ -39,25 +39,12 @@ export default function AuthButton() {
   };
 
   if (loading) {
-    return <div className="skeleton w-24 h-10 rounded-lg"></div>;
+    return null;
   }
 
   if (user) {
     return (
       <div className="flex items-center space-x-4">
-        <div className="hidden sm:flex items-center space-x-3">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[var(--purdue-gold)] to-[var(--purdue-gold-dark)] flex items-center justify-center text-white font-semibold text-sm">
-            {user.user_metadata?.full_name?.[0] || user.email?.[0] || "U"}
-          </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-medium text-[var(--text-primary)]">
-              {user.user_metadata?.full_name?.split(" ")[0] || "User"}
-            </span>
-            <span className="text-xs text-[var(--text-muted)]">
-              {user.email}
-            </span>
-          </div>
-        </div>
         <button
           onClick={handleSignOut}
           className="neo-btn-primary inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium"

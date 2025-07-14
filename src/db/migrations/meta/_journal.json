@@ -15,6 +15,13 @@
       "when": 1751463064970,
       "tag": "20250702133104_watery_maddog",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1752518535479,
+      "tag": "20250714184215_flowery_talon",
+      "breakpoints": true
     }
   ]
 }

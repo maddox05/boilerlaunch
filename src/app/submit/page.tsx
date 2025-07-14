@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import SubmitForm from "@/components/SubmitForm";
+import SubmitForm from "./SubmitForm";
 import { redirect } from "next/navigation";
 
 export default async function SubmitPage() {
@@ -11,9 +11,6 @@ export default async function SubmitPage() {
   if (!user) {
     redirect("/login");
   }
-
-  // TypeScript assertion: at this point we know user is not null
-  const authenticatedUser = user;
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
@@ -167,7 +164,7 @@ export default async function SubmitPage() {
             </div>
           </div>
 
-          <SubmitForm user={authenticatedUser} />
+          <SubmitForm />
         </div>
       </div>
     </div>
