@@ -341,7 +341,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
                     `Check out ${product.title} on BoilerLaunch! 🚀`
                   )}&url=${encodeURIComponent(
-                    `https://yourdomain.com/product/${product.slug}`
+                    `https://boilerlaunch.com/product/${product.slug}`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
