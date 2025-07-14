@@ -237,7 +237,8 @@ export default function SubmitForm() {
           />
         </div>
         <p className="mt-2 text-sm text-[var(--text-muted)]">
-          Give us your LinkedIn so other creators can connect with you!
+          Give us your LinkedIn so other creators can connect with you! (make it
+          your personal linkedin, we want actual connections out here!)
         </p>
         {errors.linkedinUrl && (
           <p className="mt-2 text-sm text-[var(--error)]">
