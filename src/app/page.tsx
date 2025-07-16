@@ -9,28 +9,12 @@ import ProductCard from "@/components/ProductCard";
 
 const testimonials = [
   {
-    name: "Sarah Chen",
-    role: "CS Senior",
+    name: "Maddox Schmidlkofer",
+    role: "CS Entrepreneur",
     content:
-      "BoilerLaunch helped me discover amazing student projects I never knew existed. Found my co-founder here!",
+      "The Startup community seemed kinda dead to me, so I made this as  a great way to stay connected and show that it is alive!",
     avatar:
-      "https://i1.rgstatic.net/ii/profile.image/681299144609792-1539445782047_Q512/Asra-Shaik-2.jpg",
-  },
-  {
-    name: "Alex Rodriguez",
-    role: "ECE Graduate Student",
-    content:
-      "Perfect platform to showcase my research projects and get feedback from the Purdue community.",
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-  },
-  {
-    name: "Dr. Lisa Thompson",
-    role: "Faculty, Computer Science",
-    content:
-      "I love seeing what our students are building. This platform showcases the innovation happening at Purdue.",
-    avatar:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
+      "https://media.licdn.com/dms/image/v2/D5603AQG-FWDNU49Cgg/profile-displayphoto-shrink_400_400/B56ZbEL5XeH0Ao-/0/1747048175593?e=1758153600&v=beta&t=6dS6jUUpzVh3T9sN4gI7jsyZsH-Egf5ysmcEa4aECvk",
   },
 ];
 
@@ -160,7 +144,7 @@ export default async function Home() {
               What the Purdue Community Says
             </h2>
             <p className="text-sm text-[var(--text-secondary)] max-w-xl mx-auto">
-              Hear from students, faculty, and researchers (fake for now)
+              Hear from students, faculty, and researchers
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
