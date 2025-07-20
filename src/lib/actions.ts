@@ -88,48 +88,27 @@ export async function upvote(productId: string) {
     .limit(1);
 
   if (existingUpvote.length > 0) {
-    throw new Error("You have already upvoted this product");
+    const result = await db
+      .delete(upvotes)
+      .where(and(eq(upvotes.productId, productId), eq(upvotes.userId, user.id)))
+      .returning();
+
+    return {
+      data: result[0],
+      message: "Upvote deleted",
+    };
   }
 
   // Create the upvote
-  return await db
+  const result = await db
     .insert(upvotes)
     .values({
       productId,
       userId: user.id,
     })
     .returning();
-}
 
-export async function unvote(productId: string) {
-  try {
-    const supabase = await createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    if (!user) {
-      throw new Error("unauthorized");
-    }
-    if (!productId) {
-      throw new Error("product id is required");
-    }
-
-    // Delete the upvote
-    const result = await db
-      .delete(upvotes)
-      .where(and(eq(upvotes.productId, productId), eq(upvotes.userId, user.id)))
-      .returning();
-
-    if (result.length === 0) {
-      throw new Error("Upvote not found");
-    }
-
-    return true;
-  } catch (error) {
-    console.error("Error deleting upvote:", error);
-    throw new Error("Internal server error");
-  }
+  return { data: result[0], message: "Upvote created" };
 }
 
 export async function submitProduct(product: ProductSubmission) {

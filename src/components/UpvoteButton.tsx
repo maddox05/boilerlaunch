@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { upvote, unvote } from "@/lib/actions";
 
 interface UpvoteButtonProps {
   productId: string;
@@ -38,15 +39,9 @@ export default function UpvoteButton({
     setLoading(true);
 
     try {
-      const response = await fetch("/api/upvotes", {
-        method: userUpvoted ? "DELETE" : "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ productId }),
-      });
+      const { data } = await upvote(productId);
 
-      if (response.ok) {
+      if (data) {
         if (userUpvoted) {
           setUpvoteCount((prev) => prev - 1);
           setUserUpvoted(false);
