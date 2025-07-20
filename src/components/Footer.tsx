@@ -15,7 +15,8 @@ export default function Footer() {
             <span>
               <Link href="/submit">Showcase</Link> •{" "}
               <Link href="/">Discover</Link> •{" "}
-              <Link href="/connect">Connect</Link>
+              <Link href="/connect">Connect</Link> •{" "}
+              <Link href="/blog">Blog</Link>
             </span>
           </div>
           <div className="flex justify-center mt-4">

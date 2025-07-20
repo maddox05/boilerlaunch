@@ -150,8 +150,9 @@ export default function SubmitForm() {
             }))
           }
           className="neo-input w-full px-4 py-3 rounded-lg text-base resize-none"
-          placeholder="Brief description of what your product does and why it's awesome..."
+          placeholder="Talk about your project and how it relates to purdue!"
         />
+
         {errors.shortDescription && (
           <p className="mt-2 text-sm text-[var(--error)]">
             {errors.shortDescription}
