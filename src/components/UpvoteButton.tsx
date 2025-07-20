@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { upvote, unvote } from "@/lib/actions";
+import { upvote } from "@/lib/actions";
 
 interface UpvoteButtonProps {
   productId: string;
