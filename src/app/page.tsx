@@ -1,11 +1,7 @@
-import Link from "next/link";
-import {
-  getTodayProducts,
-  getAllProducts,
-  getUserUpvotes,
-} from "@/lib/actions";
-import { createClient } from "@/lib/supabase/server";
-import ProductCard from "@/components/ProductCard";
+import { getTodayProducts, getAllProducts } from "@/lib/actions";
+import ProductCardList from "@/components/ProductCardList";
+import ProductCardListSkeleton from "@/components/ProductCardListSkeleton";
+import { Suspense } from "react";
 
 const testimonials = [
   {
@@ -19,19 +15,11 @@ const testimonials = [
 ];
 
 export default async function Home() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  const todayProducts = await getTodayProducts();
-  const allProducts = await getAllProducts();
-
-  // Get user upvotes
-  const allProductIds = [...todayProducts, ...allProducts].map((p) => p.id);
-  const userUpvotedSet = user
-    ? await getUserUpvotes(user.id, allProductIds)
-    : new Set<string>();
+  // Fetch products and user in parallel for better performance
+  const [todayProducts, allProducts] = await Promise.all([
+    getTodayProducts(), // todo i dont need both dumbass
+    getAllProducts(),
+  ]);
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
@@ -68,14 +56,9 @@ export default async function Home() {
               </span>
             </div>
             <div className="space-y-4">
-              {todayProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  isLoggedIn={!!user}
-                  userUpvoted={userUpvotedSet.has(product.id)}
-                />
-              ))}
+              <Suspense fallback={<ProductCardListSkeleton count={3} />}>
+                <ProductCardList products={todayProducts} />
+              </Suspense>
             </div>
           </section>
         )}
@@ -100,14 +83,9 @@ export default async function Home() {
 
           {allProducts.length > 0 ? (
             <div className="space-y-4">
-              {allProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  isLoggedIn={!!user}
-                  userUpvoted={userUpvotedSet.has(product.id)}
-                />
-              ))}
+              <Suspense fallback={<ProductCardListSkeleton count={8} />}>
+                <ProductCardList products={allProducts} />
+              </Suspense>
             </div>
           ) : (
             <div className="neo-card text-center py-16">
@@ -120,7 +98,7 @@ export default async function Home() {
                   Be the first to share your amazing project with the Purdue
                   community!
                 </p>
-                {user ? (
+                {/* {user ? (
                   <Link
                     href="/submit"
                     className="neo-btn-primary inline-flex items-center px-6 py-3 rounded-lg font-semibold"
@@ -131,7 +109,7 @@ export default async function Home() {
                   <p className="text-[var(--text-muted)]">
                     Sign in to submit the first product!
                   </p>
-                )}
+                )} */}
               </div>
             </div>
           )}

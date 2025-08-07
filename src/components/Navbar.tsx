@@ -1,11 +1,7 @@
 import Link from "next/link";
 import AuthButton from "./AuthButton";
-import { createClient } from "@/lib/supabase/server";
 
 export default async function Navbar() {
-  const supabase = await createClient();
-  await supabase.auth.getUser();
-
   return (
     <nav className="neo-nav sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
