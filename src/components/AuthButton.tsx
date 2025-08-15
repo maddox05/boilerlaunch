@@ -13,10 +13,10 @@ export default async function AuthButton() {
         <form action="/auth/signout" method="POST">
           <button
             type="submit"
-            className="neo-btn-primary inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium"
+            className="neo-btn-primary inline-flex items-center px-2 sm:px-3 py-2 rounded-lg text-sm font-medium"
           >
             <svg
-              className="w-4 h-4 mr-2"
+              className="w-4 h-4 mr-1 sm:mr-2"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -38,7 +38,7 @@ export default async function AuthButton() {
   return (
     <Link
       href="/login"
-      className="neo-btn-primary inline-flex items-center px-4 py-2 rounded-lg text-sm font-semibold"
+      className="neo-btn-primary inline-flex items-center px-3 sm:px-4 py-2 rounded-lg text-sm font-semibold"
     >
       Login
     </Link>

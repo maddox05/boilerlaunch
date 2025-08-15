@@ -7,7 +7,10 @@ export default async function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-4">
-            <Link href="/" className="text-2xl font-bold text-gradient">
+            <Link
+              href="/"
+              className="text-xl sm:text-2xl font-bold text-gradient"
+            >
               🚀 BoilerLaunch
             </Link>
             <div className="hidden sm:block">
@@ -16,10 +19,10 @@ export default async function Navbar() {
               </span>
             </div>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <Link
               href="/submit"
-              className="neo-btn-primary inline-flex items-center px-4 py-2 rounded-lg text-sm font-semibold"
+              className="hidden sm:inline-flex neo-btn-primary items-center px-4 py-2 rounded-lg text-sm font-semibold"
             >
               <svg
                 className="w-4 h-4 mr-2"
@@ -38,7 +41,7 @@ export default async function Navbar() {
             </Link>
             <Link
               href="/connect"
-              className="neo-btn-primary inline-flex items-center px-4 py-2 rounded-lg text-sm font-semibold"
+              className="hidden sm:inline-flex neo-btn-primary items-center px-4 py-2 rounded-lg text-sm font-semibold"
             >
               👥 Connect
             </Link>
