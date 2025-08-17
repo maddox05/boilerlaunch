@@ -2,6 +2,7 @@ import { getTodayProducts, getAllProducts } from "@/lib/actions";
 import ProductCardList from "@/components/ProductCardList";
 import ProductCardListSkeleton from "@/components/ProductCardListSkeleton";
 import { Suspense } from "react";
+import AssessmentOptions from "@/components/AssessmentOptions";
 
 const testimonials = [
   {
@@ -62,6 +63,11 @@ export default async function Home() {
             </div>
           </section>
         )}
+
+        {/* Assessment Options (below New Products, above All Products) */}
+        <section className="mb-20" id="assess">
+          <AssessmentOptions />
+        </section>
 
         {/* All Products */}
         <section id="products">

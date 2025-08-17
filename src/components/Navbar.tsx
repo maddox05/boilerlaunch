@@ -1,5 +1,7 @@
 import Link from "next/link";
 import AuthButton from "./AuthButton";
+import MobileMenu from "./MobileMenu";
+import DesktopMoreMenu from "./DesktopMoreMenu";
 
 export default async function Navbar() {
   return (
@@ -20,6 +22,7 @@ export default async function Navbar() {
             </div>
           </div>
           <div className="flex items-center space-x-2 sm:space-x-4">
+            <DesktopMoreMenu />
             <Link
               href="/submit"
               className="hidden sm:inline-flex neo-btn-primary items-center px-4 py-2 rounded-lg text-sm font-semibold"
@@ -39,13 +42,9 @@ export default async function Navbar() {
               </svg>
               Submit Product
             </Link>
-            <Link
-              href="/connect"
-              className="hidden sm:inline-flex neo-btn-primary items-center px-4 py-2 rounded-lg text-sm font-semibold"
-            >
-              👥 Connect
-            </Link>
             <AuthButton />
+            {/* Mobile menu trigger */}
+            <MobileMenu />
           </div>
         </div>
       </div>

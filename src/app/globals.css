@@ -7,6 +7,10 @@
   --gold-dark: hsl(39, 39.7%, 59.4%);
   --gold-light: hsl(39, 39.7%, 79.4%);
 
+  /* Quiz theme aliases */
+  --venture-gold: #cfb991;
+  --venture-black: #000000;
+
   /* Purdue Brand Colors */
   --purdue-gold: #cfb991;
   --purdue-gold-dark: #b1946c;
@@ -352,6 +356,16 @@ body {
     background-clip: text;
   }
 
+  /* Ensure dropdown/menu content uses neutral surface + text tokens regardless of nav overrides */
+  .neo-menu {
+    background: var(--surface);
+    color: var(--text-primary);
+  }
+  .neo-menu *,
+  .neo-menu a {
+    color: var(--text-primary) !important;
+  }
+
   .neo-hero::before {
     content: "";
     position: absolute;
@@ -382,4 +396,145 @@ body {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
   }
+}
+
+/* ------------------------------ */
+/* Quiz UI utilities (contrast)   */
+/* ------------------------------ */
+
+/* Background and surface helpers */
+.cosmic-bg {
+  background: radial-gradient(
+      1200px 600px at 10% 10%,
+      rgba(207, 185, 145, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(
+      1000px 500px at 90% 20%,
+      rgba(207, 185, 145, 0.06),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #0b0d10 0%, #000000 100%);
+}
+
+.dark-card {
+  background-color: #0d1117 !important;
+  border-color: rgba(207, 185, 145, 0.3) !important;
+  color: #ffffff;
+}
+
+.rocket-card {
+  /* subtle elevation to stand out on dark bg */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.purdue-gradient {
+  background: linear-gradient(135deg, var(--venture-gold) 0%, #b1946c 100%);
+}
+
+/* Brand color utilities */
+.text-venture-gold {
+  color: var(--venture-gold) !important;
+}
+.text-venture-black {
+  color: var(--venture-black) !important;
+}
+.bg-venture-gold {
+  background-color: var(--venture-gold) !important;
+}
+.bg-venture-black {
+  background-color: var(--venture-black) !important;
+}
+.border-venture-gold {
+  border-color: var(--venture-gold) !important;
+}
+
+/* Opacity variants used in quiz */
+.bg-venture-gold\/10 {
+  background-color: rgba(207, 185, 145, 0.1) !important;
+}
+.bg-venture-gold\/20 {
+  background-color: rgba(207, 185, 145, 0.2) !important;
+}
+.bg-venture-gold\/60 {
+  background-color: rgba(207, 185, 145, 0.6) !important;
+}
+.bg-venture-gold\/80 {
+  background-color: rgba(207, 185, 145, 0.8) !important;
+}
+.bg-venture-gold\/90 {
+  background-color: rgba(207, 185, 145, 0.9) !important;
+}
+
+.border-venture-gold\/20 {
+  border-color: rgba(207, 185, 145, 0.2) !important;
+}
+.border-venture-gold\/30 {
+  border-color: rgba(207, 185, 145, 0.3) !important;
+}
+.border-venture-gold\/40 {
+  border-color: rgba(207, 185, 145, 0.4) !important;
+}
+.border-venture-gold\/50 {
+  border-color: rgba(207, 185, 145, 0.5) !important;
+}
+
+/* Hover helpers for frequently used states */
+.hover\:bg-venture-gold:hover {
+  background-color: var(--venture-gold) !important;
+}
+.hover\:bg-venture-gold\/10:hover {
+  background-color: rgba(207, 185, 145, 0.1) !important;
+}
+.hover\:bg-venture-gold\/80:hover {
+  background-color: rgba(207, 185, 145, 0.8) !important;
+}
+.hover\:bg-venture-gold\/90:hover {
+  background-color: rgba(207, 185, 145, 0.9) !important;
+}
+.hover\:bg-venture-black:hover {
+  background-color: var(--venture-black) !important;
+}
+.hover\:text-venture-black:hover {
+  color: var(--venture-black) !important;
+}
+.hover\:text-venture-gold:hover {
+  color: var(--venture-gold) !important;
+}
+.hover\:border-venture-gold\/50:hover {
+  border-color: rgba(207, 185, 145, 0.5) !important;
+}
+
+/* Tailwind ring color helper used in guidance results */
+.ring-venture-gold\/50 {
+  --tw-ring-color: rgba(207, 185, 145, 0.5) !important;
+}
+
+/* Small animations used by quiz */
+@keyframes rocket-launch {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-2px) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+.animate-rocket-launch {
+  animation: rocket-launch 1.2s ease-in-out infinite;
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.animate-star-twinkle {
+  animation: star-twinkle 1.6s ease-in-out infinite;
 }
