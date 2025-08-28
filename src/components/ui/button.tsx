@@ -14,12 +14,11 @@ function cn(...classes: Array<string | undefined | null | false>) {
 }
 
 const variantClassMap: Record<ButtonVariant, string> = {
-  default: "bg-black text-white hover:bg-black/90",
-  destructive: "bg-red-600 text-white hover:bg-red-600/90",
-  outline:
-    "border border-gray-300 bg-white text-gray-900 hover:bg-gray-50 dark:text-gray-900",
-  secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200",
-  ghost: "hover:bg-gray-100",
+  default: "bg-black text-white",
+  destructive: "bg-red-600 text-white",
+  outline: "border border-gray-300 bg-white text-gray-900 dark:text-gray-900",
+  secondary: "bg-gray-100 text-gray-900",
+  ghost: "",
   link: "text-blue-600 underline-offset-4 hover:underline",
 };
 
@@ -42,7 +41,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
+          "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium disabled:pointer-events-none disabled:opacity-50",
           variantClassMap[variant],
           sizeClassMap[size],
           className

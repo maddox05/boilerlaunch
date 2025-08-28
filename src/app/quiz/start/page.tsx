@@ -40,7 +40,7 @@ const StartQuizPage = () => {
           <div className="flex justify-center mb-8">
             {/* Replaced the P with the Purdue logo/crest image */}
             <img
-              src="/lovable-uploads/f16c4c5c-a60f-4e80-bba1-346c72475510.png"
+              src="/pulogo.png"
               alt="Purdue University Logo"
               className="w-20 h-20 object-contain"
             />

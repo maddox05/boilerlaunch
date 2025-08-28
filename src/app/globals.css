@@ -135,7 +135,7 @@ body {
 }
 
 .neo-btn-primary:hover:not(:disabled) {
-  background: var(--purdue-gold-dark);
+  /* background: var(--purdue-gold-dark); */
   box-shadow: var(--shadow-md);
   transform: translateY(-1px);
 }

@@ -10,82 +10,7 @@ import {
 } from "../ui/card";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
-
-// Purdue-associated startup details with expanded information for articles
-export const purdueStartups = [
-  {
-    name: "Cloudflare",
-    founded: "2009",
-    founders: "Matthew Prince, Lee Holloway, Michelle Zatlyn",
-    description:
-      "Cloudflare began as a project at Purdue University before becoming a cybersecurity giant providing CDN and DDoS protection services to millions of websites worldwide.",
-    achievements:
-      "Valued at over $10 billion, protecting over 25 million Internet properties.",
-    purdueConnection:
-      "Co-founder Lee Holloway is a Purdue Computer Science alumnus who developed early network security concepts while at Purdue.",
-    link: "https://www.cloudflare.com",
-  },
-  {
-    name: "Endocyte",
-    founded: "1996",
-    founders: "Philip Low",
-    description:
-      "Endocyte was founded to commercialize Professor Low's breakthrough research in targeted drug delivery for cancer treatment using vitamin receptors.",
-    achievements:
-      "Acquired by Novartis for $2.1 billion in 2018, developing precision medicines for cancer treatment.",
-    purdueConnection:
-      "Founded by Dr. Philip Low, Presidential Scholar for Drug Discovery and Professor of Chemistry at Purdue.",
-    link: "https://www.novartis.com",
-  },
-  {
-    name: "On-Ramp Indiana",
-    founded: "2005",
-    founders: "David Koehlinger",
-    description:
-      "On-Ramp develops wireless IoT communication technologies that enable long-range, low-power connections for industrial applications.",
-    achievements:
-      "Patented RPMA (Random Phase Multiple Access) technology is now used globally for smart grid and industrial IoT applications.",
-    purdueConnection:
-      "Technology was developed in Purdue's School of Electrical and Computer Engineering and licensed through the Purdue Research Foundation.",
-    link: "https://www.purdue.edu/research/partnerships/",
-  },
-  {
-    name: "Cook Biotech",
-    founded: "1995",
-    founders: "Dr. Stephen Badylak",
-    description:
-      "Cook Biotech commercialized extracellular matrix (ECM) technology for tissue repair and regenerative medicine applications.",
-    achievements:
-      "Their SIS technology has been used in over 2.5 million patient procedures globally.",
-    purdueConnection:
-      "Based on research from Purdue's Weldon School of Biomedical Engineering; maintains strong R&D partnership with Purdue.",
-    link: "https://www.cookbiotech.com",
-  },
-  {
-    name: "Spensa Technologies",
-    founded: "2009",
-    founders: "Johnny Park",
-    description:
-      "Spensa created precision agriculture technologies including automated pest monitoring systems and field analytics platforms.",
-    achievements:
-      "Acquired by DTN in 2019, their technology now helps farmers across millions of acres optimize crop protection.",
-    purdueConnection:
-      "Founded by former Purdue professor Johnny Park based on research from his lab in the College of Agriculture.",
-    link: "https://www.dtn.com",
-  },
-  {
-    name: "Mimir",
-    founded: "2015",
-    founders: "Prahasith Veluvolu, Jacobi Petrucciani, Colton Voege",
-    description:
-      "Mimir developed a cloud-based platform for computer science education that automates grading and detects plagiarism.",
-    achievements:
-      "Acquired by HackerRank in 2020, their platform has been used by over 70 universities to teach computer science.",
-    purdueConnection:
-      "Founded by three Purdue Computer Science students who developed the initial prototype during a hackathon at Purdue.",
-    link: "https://www.hackerrank.com",
-  },
-];
+import { purdueStartups } from "@/data/purdueStartups";
 
 const StartupShowcase: React.FC = () => {
   const [activeStartup, setActiveStartup] = useState<
@@ -110,11 +35,11 @@ const StartupShowcase: React.FC = () => {
       </h3>
 
       {/* Startup Grid */}
-      <div className="flex justify-center gap-4 flex-wrap">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {purdueStartups.map((startup, index) => (
           <div
             key={index}
-            className="bg-black border border-venture-gold/30 rounded-lg p-3 text-center w-[calc(50%-0.5rem)] sm:w-[calc(33.33%-0.75rem)] cursor-pointer hover:bg-venture-gold/10 transition-colors"
+            className="bg-black border border-venture-gold/30 rounded-lg p-3 text-center cursor-pointer hover:bg-venture-gold/10 transition-colors"
             onClick={() => setActiveStartup(startup)}
           >
             <div className="bg-venture-gold/20 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-1">
@@ -178,7 +103,7 @@ const StartupShowcase: React.FC = () => {
               <CardFooter className="flex justify-between border-t border-venture-gold/20 pt-4">
                 <Button
                   variant="outline"
-                  className="border-venture-gold/40 text-venture-gold hover:bg-venture-gold hover:text-black"
+                  className="border-venture-gold/40 text-black hover:bg-venture-gold hover:text-black"
                   onClick={() => setActiveStartup(null)}
                 >
                   Close
@@ -202,7 +127,7 @@ const StartupShowcase: React.FC = () => {
           Stories
         </h3>
 
-        <div className="w-full max-w-md mx-auto space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {purdueStartups.map((startup, index) => (
             <Card
               key={index}
@@ -223,7 +148,7 @@ const StartupShowcase: React.FC = () => {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="w-full border-venture-gold/40 text-venture-gold hover:bg-venture-gold hover:text-black"
+                  className="w-full border-venture-gold/40 text-black hover:bg-venture-gold hover:text-black"
                   onClick={() => handleViewStartupDetails(startup)}
                 >
                   Read Full Story
