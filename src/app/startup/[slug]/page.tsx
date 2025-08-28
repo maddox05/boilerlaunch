@@ -3,16 +3,19 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getStartupBySlug, purdueStartups } from "@/data/purdueStartups";
 
-type PageProps = {
-  params: { slug: string };
-};
+interface StartupPageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
 
 export function generateStaticParams() {
   return purdueStartups.map((s) => ({ slug: s.slug }));
 }
 
-export default function StartupPage({ params }: PageProps) {
-  const startup = getStartupBySlug(params.slug);
+export default async function StartupPage({ params }: StartupPageProps) {
+  const { slug } = await params;
+  const startup = getStartupBySlug(slug);
   if (!startup) return notFound();
 
   return (
