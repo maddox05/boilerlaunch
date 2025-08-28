@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center">
           <div className="text-2xl font-bold text-gradient mb-4">
-            🚀 BoilerLaunch
+            🚀 BoilerLaunchpad
           </div>
           <p className="text-[var(--text-secondary)] mb-4">
             Built with ❤️ for the Purdue community

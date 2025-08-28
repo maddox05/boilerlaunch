@@ -1,8 +1,8 @@
-# 🚀 BoilerLaunch
+# 🚀 boilerlaunch
 
 A Purdue-focused Product Hunt clone built with Next.js, Drizzle ORM, Supabase, and Tailwind CSS.
 
-BoilerLaunch is a community-driven platform designed specifically for Purdue University students and faculty to showcase and discover innovative projects, research, startups, and tools created within the Purdue community.
+boilerlaunch is a community-driven platform designed specifically for Purdue University students and faculty to showcase and discover innovative projects, research, startups, and tools created within the Purdue community.
 
 ## ✨ Features
 

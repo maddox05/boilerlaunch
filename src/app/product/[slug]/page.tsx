@@ -339,7 +339,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <div className="space-y-3">
                 <Link
                   href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                    `Check out ${product.title} on BoilerLaunch! 🚀`
+                    `Check out ${product.title} on boilerlaunch! 🚀`
                   )}&url=${encodeURIComponent(
                     `https://boilerlaunch.com/product/${product.slug}`
                   )}`}

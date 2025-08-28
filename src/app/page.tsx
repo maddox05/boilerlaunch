@@ -13,6 +13,14 @@ const testimonials = [
     avatar:
       "https://media.licdn.com/dms/image/v2/D5603AQG-FWDNU49Cgg/profile-displayphoto-shrink_400_400/B56ZbEL5XeH0Ao-/0/1747048175593?e=1758153600&v=beta&t=6dS6jUUpzVh3T9sN4gI7jsyZsH-Egf5ysmcEa4aECvk",
   },
+  {
+    name: "Ben Gottlieb",
+    role: "Purdue Founder",
+    content:
+      "I wanted a way to bridge the gap between university resources and entrepreneurial students around me!",
+    avatar:
+      "https://media.licdn.com/dms/image/v2/D4E03AQF8TEWwpqTh5A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731550610348?e=1759363200&v=beta&t=ATW9p5aGpbi5OdH8XQ18E3aYp8NP9fip8qlEBr55TMo",
+  },
 ];
 
 export default async function Home() {
@@ -26,7 +34,7 @@ export default async function Home() {
     <div className="min-h-screen bg-[var(--background)]">
       {/* Compact Header */}
       <section className="border-b border-[var(--border-light)] bg-[var(--surface)] py-6">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-2">
               Discover the best projects from{" "}
@@ -39,7 +47,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-6xl lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Products Launched Today */}
         {todayProducts.length > 0 && (
           <section className="mb-20" id="today">

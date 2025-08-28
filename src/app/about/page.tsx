@@ -7,7 +7,8 @@ import {
   CardDescription,
   CardContent,
 } from "../../components/ui/card";
-import { Linkedin, UserRound } from "lucide-react";
+import { Linkedin } from "lucide-react";
+import Image from "next/image";
 
 const AboutPage = () => {
   return (
@@ -17,7 +18,7 @@ const AboutPage = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-2">
-              About BoilerLaunch
+              About BoilerLaunchpad
             </h1>
             <p className="text-sm md:text-base text-[var(--text-secondary)] max-w-2xl mx-auto">
               Connecting startups with the right resources at the right time.
@@ -98,32 +99,70 @@ const AboutPage = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="flex items-start gap-4 p-4 rounded-lg border border-[var(--border-light)] bg-[var(--surface-hover)]">
-                <div className="shrink-0">
-                  <div className="h-16 w-16 rounded-full bg-gradient-to-r from-venture-gold to-venture-gold/70 flex items-center justify-center">
-                    <UserRound className="h-8 w-8 text-white" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="flex items-start gap-4 p-4 rounded-lg border border-[var(--border-light)] bg-[var(--surface-hover)]">
+                  <div className="shrink-0">
+                    <Image
+                      src="https://media.licdn.com/dms/image/v2/D5603AQG-FWDNU49Cgg/profile-displayphoto-shrink_400_400/B56ZbEL5XeH0Ao-/0/1747048175593?e=1758153600&v=beta&t=6dS6jUUpzVh3T9sN4gI7jsyZsH-Egf5ysmcEa4aECvk"
+                      alt="Maddox Schmidlkofer"
+                      width={64}
+                      height={64}
+                      className="h-16 w-16 rounded-full object-cover border-2 border-[var(--purdue-gold)]"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-1">
+                      Maddox Schmidlkofer
+                    </h3>
+                    <p className="text-[var(--text-secondary)] mb-2">
+                      CS Entrepreneur
+                    </p>
+                    <p className="text-[var(--text-primary)] mb-3">
+                      Maddox is passionate about building tools and communities
+                      that help Purdue founders connect, showcase projects, and
+                      access the right resources at the right time.
+                    </p>
+                    <a
+                      href="https://www.linkedin.com/in/maddox-schmidlkofer/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-venture-gold hover:text-venture-black transition-colors"
+                    >
+                      <Linkedin className="mr-1 h-4 w-4" /> Connect on LinkedIn
+                    </a>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-1">
-                    Ben Gottlieb
-                  </h3>
-                  <p className="text-[var(--text-secondary)] mb-2">
-                    Venture Catalyst at Purdue University
-                  </p>
-                  <p className="text-[var(--text-primary)] mb-3">
-                    Ben helps founders navigate the entrepreneurial ecosystem at
-                    Purdue University, connecting them with the resources they
-                    need to succeed.
-                  </p>
-                  <a
-                    href="https://www.linkedin.com/in/ben-gottlieb-773508289/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-venture-gold hover:text-venture-black transition-colors"
-                  >
-                    <Linkedin className="mr-1 h-4 w-4" /> Connect on LinkedIn
-                  </a>
+                <div className="flex items-start gap-4 p-4 rounded-lg border border-[var(--border-light)] bg-[var(--surface-hover)]">
+                  <div className="shrink-0">
+                    <Image
+                      src="https://media.licdn.com/dms/image/v2/D4E03AQF8TEWwpqTh5A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731550610348?e=1759363200&v=beta&t=ATW9p5aGpbi5OdH8XQ18E3aYp8NP9fip8qlEBr55TMo"
+                      alt="Ben Gottlieb"
+                      width={64}
+                      height={64}
+                      className="h-16 w-16 rounded-full object-cover border-2 border-[var(--purdue-gold)]"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-1">
+                      Ben Gottlieb
+                    </h3>
+                    <p className="text-[var(--text-secondary)] mb-2">
+                      Student at Purdue University
+                    </p>
+                    <p className="text-[var(--text-primary)] mb-3">
+                      Ben helps founders navigate the entrepreneurial ecosystem
+                      at Purdue University, connecting them with the resources
+                      they need to succeed.
+                    </p>
+                    <a
+                      href="https://www.linkedin.com/in/ben-gottlieb-773508289/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-venture-gold hover:text-venture-black transition-colors"
+                    >
+                      <Linkedin className="mr-1 h-4 w-4" /> Connect on LinkedIn
+                    </a>
+                  </div>
                 </div>
               </div>
             </CardContent>

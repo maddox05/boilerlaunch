@@ -73,9 +73,7 @@
         "boilerlaunch_products_slug_unique": {
           "name": "boilerlaunch_products_slug_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         }
       },
       "policies": {},
@@ -119,12 +117,8 @@
           "name": "boilerlaunch_upvotes_product_id_boilerlaunch_products_id_fk",
           "tableFrom": "boilerlaunch_upvotes",
           "tableTo": "boilerlaunch_products",
-          "columnsFrom": [
-            "product_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["product_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }

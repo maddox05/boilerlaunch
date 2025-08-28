@@ -13,13 +13,8 @@ export default async function Navbar() {
               href="/"
               className="text-xl sm:text-2xl font-bold text-gradient"
             >
-              🚀 BoilerLaunch
+              🚀 BoilerLaunchpad
             </Link>
-            <div className="hidden sm:block">
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium status-new">
-                Purdue Product Hunt
-              </span>
-            </div>
           </div>
           <div className="flex items-center space-x-2 sm:space-x-4">
             <DesktopMoreMenu />

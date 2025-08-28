@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "BoilerLaunch - Discover Amazing Projects from Purdue",
-    template: "%s | BoilerLaunch",
+    default: "BoilerLaunchpad - Discover Amazing Projects from Purdue",
+    template: "%s | BoilerLaunchpad",
   },
   description:
     "Discover and share incredible projects created by the Purdue University community. Submit your own creations and get upvoted by fellow Boilermakers!",
@@ -33,24 +33,24 @@ export const metadata: Metadata = {
     "tech projects",
     "startup showcase",
   ],
-  authors: [{ name: "BoilerLaunch Team" }],
-  creator: "BoilerLaunch",
-  publisher: "BoilerLaunch",
+  authors: [{ name: "BoilerLaunchpad Team" }],
+  creator: "BoilerLaunchpad",
+  publisher: "BoilerLaunchpad",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://boilerlaunch.com"),
+  metadataBase: new URL("https://BoilerLaunchpad.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "🚀 BoilerLaunch - Discover Amazing Projects from Purdue",
+    title: "🚀 BoilerLaunchpad - Discover Amazing Projects from Purdue",
     description:
       "Discover and share incredible projects created by the Purdue University community. Submit your own creations and get upvoted by fellow Boilermakers!",
     url: "/",
-    siteName: "BoilerLaunch",
+    siteName: "BoilerLaunchpad",
     locale: "en_US",
     type: "website",
     images: [
@@ -58,13 +58,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "BoilerLaunch - Discover Amazing Projects from Purdue",
+        alt: "BoilerLaunchpad - Discover Amazing Projects from Purdue",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "🚀 BoilerLaunch - Discover Amazing Projects from Purdue",
+    title: "🚀 BoilerLaunchpad - Discover Amazing Projects from Purdue",
     description:
       "Discover and share incredible projects created by the Purdue University community. Submit your own creations and get upvoted by fellow Boilermakers!",
     images: ["/og-image.png"],
